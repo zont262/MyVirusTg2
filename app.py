@@ -5,6 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import sqlite3
 import os
+import  uvicorn
 
 app = FastAPI()
 
@@ -72,3 +73,7 @@ def click(data: ClickRequest):
     coins = c.fetchone()[0]
     conn.close()
     return {"coins": coins}
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host = "0.0.0.0", port = port)
