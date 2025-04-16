@@ -6,7 +6,7 @@ import  uvicorn
 
 BOT_TOKEN = os.getenv("6324958627:AAGaz8WxBLzOZA16I-JeR9VqPxRXHPimyvU")  # или просто вставь свой токен как строку
 
-bot = Bot(token=BOT_TOKEN)
+bot = Bot(token="6324958627:AAGaz8WxBLzOZA16I-JeR9VqPxRXHPimyvU")
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
