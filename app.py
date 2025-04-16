@@ -17,7 +17,7 @@ app.add_middleware(
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
 
-DB_PATH = "backend/db.sqlite"
+DB_PATH = "db.sqlite"
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
