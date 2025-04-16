@@ -2,6 +2,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from aiogram.utils import executor
 import os
+import  uvicorn
 
 BOT_TOKEN = os.getenv("6324958627:AAGaz8WxBLzOZA16I-JeR9VqPxRXHPimyvU")  # или просто вставь свой токен как строку
 
@@ -16,6 +17,8 @@ async def start(message: types.Message):
     await message.answer("Добро пожаловать! Нажми кнопку, чтобы начать:", reply_markup=keyboard)
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
     from aiogram import executor
     from dotenv import load_dotenv
     load_dotenv()
